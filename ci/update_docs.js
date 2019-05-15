@@ -1,5 +1,5 @@
 const axios = require('axios')
-const { apikey, collectionId } = require('./config')
+var conf = require('./config')
 const collection = require('../postman_collection.json')
 
 updateDocs()
@@ -8,8 +8,8 @@ async function updateDocs () {
   try {
     const update = await axios.request({
       method: 'put',
-      params: { apikey },
-      url: `https://api.getpostman.com/collections/${collectionId}`,
+      params: { conf.apikey },
+      url: `https://api.getpostman.com/collections/${conf.collectionId}`,
       data: { collection }
     })
 
