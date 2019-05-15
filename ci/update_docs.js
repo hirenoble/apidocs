@@ -9,9 +9,9 @@ async function updateDocs () {
   try {
     const update = await axios.request({
       method: 'put',
-      params: { apiKey },
+      headers: { 'X-Api-Key' : apiKey, 'Content-Type' : 'application/json' },
       url: `https://api.getpostman.com/collections/${collectionId}`,
-      data: { collection }
+      data: { collection : collection }
     })
 
     if (update) {
