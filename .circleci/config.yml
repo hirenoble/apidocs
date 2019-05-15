@@ -5,5 +5,5 @@ jobs:
       - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
-      - run: echo "module.exports = { apikey: '8ef445f78b0c419db6bfdc92d3225a56', collectionId: '2147941-fc12cf90-7c58-4964-ad32-9d7ff6a49893' }" > "ci/config.js"
-      node ci/update-docs.js
+      - run: echo "module.exports = { 'apikey': '8ef445f78b0c419db6bfdc92d3225a56', 'collectionId': '2147941-fc12cf90-7c58-4964-ad32-9d7ff6a49893' }" > "ci/config.js"
+      - run: node ci/update-docs.js
