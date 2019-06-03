@@ -29,7 +29,7 @@ async function updateDocs() {
                     'Authorization': 'Bearer ' + token,
                     'Content-Type': 'application/json'
                 },
-                url: `https://next-api.stoplight.io/docs.release?id=30117`,
+                url: `https://next-api.stoplight.io/docs.release?id=3907`,
                 data: {
                     "setLive": true
                 }
