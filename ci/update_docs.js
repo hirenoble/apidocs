@@ -1,4 +1,5 @@
 const axios = require('axios')
+cost request = require('request')
 const collection = require('../stock.json')
 var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdG9wbGlnaHR8MjA4NzEiLCJ1c2VybmFtZSI6ImhpcmVuc2hhaDExMSIsImVtYWlsIjoiaGlyZW5hbmFuZHNoYWhAb3V0bG9vay5jb20iLCJuYW1lIjoiSGlyZW4gU2hhaCIsImlhdCI6MTU1OTMzMzU3MCwia2V5Ijoic0dDalRIcXFYTUVzNDZwSkNDNkwifQ.yssNRz7nmUwLw2QhlVVNuort8jpTV8GiGxqdoyS-tGo";
 
@@ -11,7 +12,7 @@ async function updateDocs() {
             method: 'put',
             headers: {
                 'Authorization': 'Bearer ' + token,
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json;charset=UTF-8'
             },
             url: `https://next-api.stoplight.io/projects/23747/files/stock.oas2.yml`,
             data: {
@@ -23,24 +24,24 @@ async function updateDocs() {
 
         if (update) {
             console.log(`StopLight file updated.`)
-            const modify = await axios.request({
-                method: 'put',
+            var options = {
+                method: 'POST',
+                url: 'https://next-api.stoplight.io/docs.release',
+                qs: {
+                    id: '3907'
+                },
                 headers: {
                     'Authorization': 'Bearer ' + token,
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json;charset=UTF-8'
                 },
-                url: `https://next-api.stoplight.io/docs.release?id=3907`,
-                data: {
-                    "setLive": true
-                }
-            })
-            if (modify) {
-                console.log('StopLight doc published');
-            }
-          else
-          {
-            console.log('Publishing stoplight doc failed!');
-          }
+                body: '{ "setLive": true }'
+            };
+
+            request(options, function(error, response, body) {
+                if (error) throw new Error(error);
+
+                console.log(body);
+            });
 
         } else {
             console.log('Updating stoplight collection failed!')
