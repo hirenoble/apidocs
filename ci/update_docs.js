@@ -11,7 +11,7 @@ async function updateDocs () {
       method: 'put',
       headers: { 'Authorization' : 'Bearer '+token, 'Content-Type' : 'application/json' },
       url: `https://next-api.stoplight.io/projects/23747/files/stock.oas2.yml`,
-      data: { content : collection, branch : 'version 1.0', commit_message :  'updating stock api'}
+      data: { content : collection, branch : 'version/1.0', commit_message :  'updating stock api'}
     })
 
     if (update) {
