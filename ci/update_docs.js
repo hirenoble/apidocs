@@ -1,5 +1,5 @@
 const axios = require('axios')
-cost request = require('request')
+const request = require('request')
 const collection = require('../stock.json')
 var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdG9wbGlnaHR8MjA4NzEiLCJ1c2VybmFtZSI6ImhpcmVuc2hhaDExMSIsImVtYWlsIjoiaGlyZW5hbmFuZHNoYWhAb3V0bG9vay5jb20iLCJuYW1lIjoiSGlyZW4gU2hhaCIsImlhdCI6MTU1OTMzMzU3MCwia2V5Ijoic0dDalRIcXFYTUVzNDZwSkNDNkwifQ.yssNRz7nmUwLw2QhlVVNuort8jpTV8GiGxqdoyS-tGo";
 
