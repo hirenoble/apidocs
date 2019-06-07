@@ -1,10 +1,5 @@
 {
    "swagger":"2.0",
-   "info":{
-      "title":"AdobeStock API",
-      "description":"See details here</a>.",
-      "version":"1.0.0"
-   },
    "host" : "stock.adobe.io",
    "basePath":"/Rest",
    "schemes":[
